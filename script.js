@@ -9,10 +9,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const contactForm = document.getElementById("contactForm");
     const formAlert = document.getElementById("formStatusAlert");
     const backToTopBtn = document.getElementById("backToTop");
+    const scrollProgressBar = document.getElementById("scrollProgressBar");
 
     // 1. Dynamic Navbar & Back-to-Top Styler on Scroll
     function handleScrollState() {
         const scrollY = window.scrollY || window.pageYOffset;
+
+        // Reading progress indicator
+        if (scrollProgressBar) {
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
+            scrollProgressBar.style.width = Math.min(scrollPercent, 100) + "%";
+        }
 
         // Navbar background toggle
         if (navbar) {
@@ -59,7 +67,108 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // 4. Client Project Inquiry & Lead Form Handler
+    // 4. Smooth Direct Navigation to Contact Section with Perfect Offset
+    const contactLinks = document.querySelectorAll('a[href="#contact"]');
+    contactLinks.forEach(function (link) {
+        link.addEventListener("click", function (e) {
+            const contactSection = document.getElementById("contact");
+            if (contactSection) {
+                e.preventDefault();
+
+                // Close mobile menu if open
+                if (navbarCollapse && navbarCollapse.classList.contains("show")) {
+                    const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse) || new bootstrap.Collapse(navbarCollapse);
+                    bsCollapse.hide();
+                }
+
+                // Scroll right to the contact header / form with comfortable breathing room below fixed navbar
+                const sectionHeader = contactSection.querySelector(".section-header") || contactSection;
+                const navHeight = navbar ? navbar.offsetHeight : 75;
+                const targetY = sectionHeader.getBoundingClientRect().top + window.pageYOffset - navHeight - 15;
+
+                window.scrollTo({
+                    top: targetY,
+                    behavior: "smooth"
+                });
+
+                // Gentle focus on client inquiry name field
+                setTimeout(function () {
+                    const clientNameInput = document.getElementById("clientName");
+                    if (clientNameInput) {
+                        clientNameInput.focus({ preventScroll: true });
+                    }
+                }, 500);
+            }
+        });
+    });
+
+    // 5. Interactive Project Category Filter
+    const filterButtons = document.querySelectorAll(".project-filter-btn");
+    const projectItems = document.querySelectorAll(".project-item");
+    if (filterButtons.length && projectItems.length) {
+        filterButtons.forEach(function (btn) {
+            btn.addEventListener("click", function () {
+                filterButtons.forEach(b => b.classList.remove("active"));
+                this.classList.add("active");
+
+                const filterVal = this.getAttribute("data-filter");
+                projectItems.forEach(function (item) {
+                    const category = item.getAttribute("data-category") || "";
+                    if (filterVal === "all" || category.includes(filterVal)) {
+                        item.style.display = "block";
+                        setTimeout(function () {
+                            item.style.opacity = "1";
+                            item.style.transform = "scale(1)";
+                        }, 30);
+                    } else {
+                        item.style.opacity = "0";
+                        item.style.transform = "scale(0.96)";
+                        setTimeout(function () {
+                            item.style.display = "none";
+                        }, 250);
+                    }
+                });
+            });
+        });
+    }
+
+    // 6. One-Click Copy Email to Clipboard with Floating Toast
+    const copyEmailBtn = document.getElementById("copyEmailBtn");
+    const copyBtnText = document.getElementById("copyBtnText");
+    const globalToast = document.getElementById("globalToast");
+
+    function displayToast(msg) {
+        if (!globalToast) return;
+        globalToast.textContent = msg;
+        globalToast.classList.add("show");
+        setTimeout(function () {
+            globalToast.classList.remove("show");
+        }, 3200);
+    }
+
+    if (copyEmailBtn) {
+        copyEmailBtn.addEventListener("click", function () {
+            const emailAddress = "sonarharshal0609@gmail.com";
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(emailAddress).then(function () {
+                    if (copyBtnText) copyBtnText.textContent = "Copied!";
+                    copyEmailBtn.classList.add("copied");
+                    displayToast("✓ Copied " + emailAddress + " to clipboard!");
+
+                    setTimeout(function () {
+                        if (copyBtnText) copyBtnText.textContent = "Copy";
+                        copyEmailBtn.classList.remove("copied");
+                    }, 2500);
+                }).catch(function () {
+                    displayToast("Email: " + emailAddress);
+                });
+            } else {
+                displayToast("Email: " + emailAddress);
+            }
+        });
+    }
+
+    // 7. Client Project Inquiry & Lead Form Handler
     if (contactForm) {
         contactForm.addEventListener("submit", function (e) {
             e.preventDefault();
