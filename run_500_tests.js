@@ -551,22 +551,22 @@ check('T431', 'ShopSphere features dynamic product filtering and search', /dynam
 check('T432', 'ShopSphere features normalized database schema', /normalized relational database schema/i.test(html));
 check('T433', 'ShopSphere features role-based authorization (Admin / Customer)', /role-based authorization\s*\(Admin\s*\/\s*Customer\)/i.test(html));
 check('T434', 'ShopSphere features LINQ query optimization for low latency', /Optimized data access layers using <strong>LINQ queries<\/strong>/i.test(html));
-check('T435', 'Language skill: C# listed in Skills category', /<span class=["']skill-pill["']><i class=["']bi bi-check-lg["']><\/i> C#<\/span>/i.test(html));
-check('T436', 'Language skill: JavaScript listed in Skills category', /<span class=["']skill-pill["']><i class=["']bi bi-check-lg["']><\/i> JavaScript<\/span>/i.test(html));
-check('T437', 'Language skill: SQL listed in Skills category', /<span class=["']skill-pill["']><i class=["']bi bi-check-lg["']><\/i> SQL<\/span>/i.test(html));
-check('T438', 'Language skill: C Language listed in Skills category', /<span class=["']skill-pill["']><i class=["']bi bi-check-lg["']><\/i> C Language<\/span>/i.test(html));
-check('T439', 'Backend skill: ASP.NET Core listed in Skills category', /<span class=["']skill-pill["']><i class=["']bi bi-check-lg["']><\/i> ASP\.NET Core<\/span>/i.test(html));
-check('T440', 'Backend skill: Web API & REST listed in Skills category', /<span class=["']skill-pill["']><i class=["']bi bi-check-lg["']><\/i> Web API (?:&|&amp;) REST<\/span>/i.test(html));
-check('T441', 'Backend skill: ASP.NET Web Forms listed in Skills category', /<span class=["']skill-pill["']><i class=["']bi bi-check-lg["']><\/i> ASP\.NET Web Forms<\/span>/i.test(html));
-check('T442', 'ORM skill: EF Core listed in Skills category', /<span class=["']skill-pill["']><i class=["']bi bi-check-lg["']><\/i> EF Core<\/span>/i.test(html));
-check('T443', 'ORM skill: Entity Framework listed in Skills category', /<span class=["']skill-pill["']><i class=["']bi bi-check-lg["']><\/i> Entity Framework<\/span>/i.test(html));
-check('T444', 'ORM skill: ADO.NET listed in Skills category', /<span class=["']skill-pill["']><i class=["']bi bi-check-lg["']><\/i> ADO\.NET<\/span>/i.test(html));
-check('T445', 'Cloud skill: Microsoft Azure listed in Skills category', /<span class=["']skill-pill["']><i class=["']bi bi-check-lg["']><\/i> Microsoft Azure<\/span>/i.test(html));
-check('T446', 'Cloud skill: Azure App Service listed in Skills category', /<span class=["']skill-pill["']><i class=["']bi bi-check-lg["']><\/i> Azure App Service<\/span>/i.test(html));
-check('T447', 'Cloud skill: Azure SQL Database listed in Skills category', /<span class=["']skill-pill["']><i class=["']bi bi-check-lg["']><\/i> Azure SQL Database<\/span>/i.test(html));
-check('T448', 'Tools skill: Visual Studio listed in Skills category', /<span class=["']skill-pill["']><i class=["']bi bi-check-lg["']><\/i> Visual Studio<\/span>/i.test(html));
-check('T449', 'Tools skill: SSMS listed in Skills category', /<span class=["']skill-pill["']><i class=["']bi bi-check-lg["']><\/i> SSMS<\/span>/i.test(html));
-check('T450', 'Tools skill: Postman API listed in Skills category', /<span class=["']skill-pill["']><i class=["']bi bi-check-lg["']><\/i> Postman API<\/span>/i.test(html));
+check('T435', 'Project 3: DevChat – Developer Collaboration Platform is featured', /DevChat\s*–\s*Developer Collaboration Platform/i.test(html));
+check('T436', 'DevChat uses ASP.NET Core SignalR and WebSockets', /SignalR<\/span>[\s\S]*?WebSockets<\/span>/i.test(html));
+check('T437', 'Project 4: CarePulse – Healthcare System is featured', /CarePulse\s*–\s*Healthcare/i.test(html));
+check('T438', 'CarePulse features smart appointment scheduling and EHR', /automated patient appointment platform/i.test(html));
+check('T439', 'Language skill: C# listed in Skills category', /<span class=["']skill-pill["']><i class=["']bi bi-check-lg["']><\/i> C#<\/span>/i.test(html));
+check('T440', 'Language skill: JavaScript listed in Skills category', /<span class=["']skill-pill["']><i class=["']bi bi-check-lg["']><\/i> JavaScript<\/span>/i.test(html));
+check('T441', 'Language skill: SQL listed in Skills category', /<span class=["']skill-pill["']><i class=["']bi bi-check-lg["']><\/i> SQL<\/span>/i.test(html));
+check('T442', 'Language skill: C Language listed in Skills category', /<span class=["']skill-pill["']><i class=["']bi bi-check-lg["']><\/i> C Language<\/span>/i.test(html));
+check('T443', 'Backend skill: ASP.NET Core listed in Skills category', /<span class=["']skill-pill["']><i class=["']bi bi-check-lg["']><\/i> ASP\.NET Core<\/span>/i.test(html));
+check('T444', 'Backend skill: SignalR & WebSockets listed in Skills category', /SignalR (?:&|&amp;) WebSockets/i.test(html));
+check('T445', 'Backend skill: Web API & REST listed in Skills category', /<span class=["']skill-pill["']><i class=["']bi bi-check-lg["']><\/i> Web API (?:&|&amp;) REST<\/span>/i.test(html));
+check('T446', 'Backend skill: ASP.NET Web Forms listed in Skills category', /<span class=["']skill-pill["']><i class=["']bi bi-check-lg["']><\/i> ASP\.NET Web Forms<\/span>/i.test(html));
+check('T447', 'ORM skill: EF Core listed in Skills category', /<span class=["']skill-pill["']><i class=["']bi bi-check-lg["']><\/i> EF Core<\/span>/i.test(html));
+check('T448', 'ORM skill: Entity Framework listed in Skills category', /<span class=["']skill-pill["']><i class=["']bi bi-check-lg["']><\/i> Entity Framework<\/span>/i.test(html));
+check('T449', 'ORM skill: ADO.NET listed in Skills category', /<span class=["']skill-pill["']><i class=["']bi bi-check-lg["']><\/i> ADO\.NET<\/span>/i.test(html));
+check('T450', 'Cloud skill: Microsoft Azure listed in Skills category', /<span class=["']skill-pill["']><i class=["']bi bi-check-lg["']><\/i> Microsoft Azure<\/span>/i.test(html));
 
 // =============================================================================
 // SUITE 10: Hosting, Performance, SEO & Accessibility Standards (50 Tests)
