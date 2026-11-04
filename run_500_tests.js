@@ -347,7 +347,7 @@ check('T282', 'WhatsApp link has prefilled introductory text parameter', /text=H
 check('T283', 'WhatsApp link opens in target="_blank"', /href=["'][^"']*wa\.me[^"']*["'][^>]*target=["']_blank["']/i.test(html));
 check('T284', 'WhatsApp link has rel="noopener noreferrer"', /href=["'][^"']*wa\.me[^"']*["'][^>]*rel=["'][^"']*noopener[^"']*noreferrer[^"']*["']/i.test(html));
 check('T285', 'LinkedIn profile link exists in contact section', /href=["']https:\/\/www\.linkedin\.com\/in\/harshal-sonar-a0a4302a2["']/i.test(html));
-check('T286', 'GitHub BankSystem link exists in contact section', /href=["']https:\/\/github\.com\/banksystembg\/BankSystem\?tab=readme-ov-file["']/i.test(html));
+check('T286', 'GitHub profile link exists in contact section', /href=["']https:\/\/github\.com\/harshalsonar-dev["']/i.test(html));
 check('T287', 'Resume PDF download link exists in contact section', /href=["']Harshal_Sonar_Resume\.pdf["']/i.test(html));
 check('T288', 'Contact LinkedIn icon has aria-label="LinkedIn"', /aria-label=["']LinkedIn["']/i.test(html));
 check('T289', 'Contact GitHub icon has aria-label="GitHub"', /aria-label=["']GitHub["']/i.test(html));
@@ -452,7 +452,7 @@ check('T351', 'All target="_blank" links include rel="noopener noreferrer"', (fu
 check('T352', 'LinkedIn link in hero has rel="noopener noreferrer"', /href=["'][^"']*linkedin\.com[^"']*["'][^>]*rel=["'][^"']*noopener[^"']*noreferrer/i.test(html));
 check('T353', 'GitHub link in hero has rel="noopener noreferrer"', /href=["'][^"']*github\.com[^"']*["'][^>]*rel=["'][^"']*noopener[^"']*noreferrer/i.test(html));
 check('T354', 'WhatsApp link in hero has rel="noopener noreferrer"', /href=["'][^"']*wa\.me[^"']*["'][^>]*rel=["'][^"']*noopener[^"']*noreferrer/i.test(html));
-check('T355', 'Project 1 repository link has rel="noopener noreferrer"', /href=["'][^"']*BankSystem[^"']*["'][^>]*rel=["'][^"']*noopener[^"']*noreferrer/i.test(html));
+check('T355', 'Project 1 repository link has rel="noopener noreferrer"', /href=["'][^"']*github\.com\/harshalsonar-dev[^"']*["'][^>]*rel=["'][^"']*noopener[^"']*noreferrer/i.test(html));
 check('T356', 'Project 2 code link has rel="noopener noreferrer"', /View Implementation[\s\S]*?rel=["'][^"']*noopener[^"']*noreferrer/i.test(html) || /rel=["'][^"']*noopener[^"']*noreferrer[\s\S]*?View Implementation/i.test(html));
 check('T357', 'LinkedIn link in contact has rel="noopener noreferrer"', /aria-label=["']LinkedIn["'][^>]*rel=["'][^"']*noopener[^"']*noreferrer/i.test(html) || /rel=["'][^"']*noopener[^"']*noreferrer[^>]*aria-label=["']LinkedIn["']/i.test(html));
 check('T358', 'GitHub link in contact has rel="noopener noreferrer"', /aria-label=["']GitHub["'][^>]*rel=["'][^"']*noopener[^"']*noreferrer/i.test(html) || /rel=["'][^"']*noopener[^"']*noreferrer[^>]*aria-label=["']GitHub["']/i.test(html));
