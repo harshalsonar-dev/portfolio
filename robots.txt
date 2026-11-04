@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://harshalsonar-portfolio.netlify.app/sitemap.xml
