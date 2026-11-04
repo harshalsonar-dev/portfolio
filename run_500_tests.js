@@ -43,7 +43,7 @@ check('T005', 'Meta viewport includes initial-scale=1.0', /initial-scale=1\.0/i.
 check('T006', 'Meta description is descriptive and present', /<meta[^>]*name=["']description["'][^>]*content=["'][^"']{30,}["']/i.test(html));
 check('T007', 'Meta keywords tag defined with .NET skills', /<meta[^>]*name=["']keywords["'][^>]*content=["'][^"']*ASP\.NET Core/i.test(html));
 check('T008', 'Meta author set to Harshal M. Sonar', /<meta[^>]*name=["']author["'][^>]*content=["']Harshal M\. Sonar["']/i.test(html));
-check('T009', 'Canonical URL tag points to production domain', /<link[^>]*rel=["']canonical["'][^>]*href=["']https:\/\/harshalsonar-portfolio\.netlify\.app\/["']/i.test(html));
+check('T009', 'Canonical URL tag points to production domain', /<link[^>]*rel=["']canonical["'][^>]*href=["']https:\/\/harshal-sonar-portfolio\.netlify\.app\/["']/i.test(html));
 check('T010', 'Primary title tag exists', /<title>[\s\S]*?<\/title>/i.test(html));
 check('T011', 'Title includes Harshal Sonar', /<title>[^<]*Harshal Sonar/i.test(html));
 check('T012', 'Title includes .NET Full Stack', /<title>[^<]*\.NET Full Stack/i.test(html));
@@ -96,7 +96,7 @@ check('T054', 'Favicon ICO file exists on disk', fs.existsSync(path.join(ROOT, '
 check('T055', 'Favicon ICO file has valid size', fs.statSync(path.join(ROOT, 'favicon.ico')).size > 100);
 check('T056', 'Favicon SVG has valid XML root', fs.readFileSync(path.join(ROOT, 'favicon.svg'), 'utf8').includes('<svg'));
 check('T057', 'og:type meta tag is website', /<meta[^>]*property=["']og:type["'][^>]*content=["']website["']/i.test(html));
-check('T058', 'og:url meta tag matches Netlify URL', /<meta[^>]*property=["']og:url["'][^>]*content=["']https:\/\/harshalsonar-portfolio\.netlify\.app\/["']/i.test(html));
+check('T058', 'og:url meta tag matches Netlify URL', /<meta[^>]*property=["']og:url["'][^>]*content=["']https:\/\/harshal-sonar-portfolio\.netlify\.app\/["']/i.test(html));
 check('T059', 'og:title meta tag defined', /<meta[^>]*property=["']og:title["'][^>]*content=["'][^"']*Harshal Sonar/i.test(html));
 check('T060', 'og:description meta tag defined', /<meta[^>]*property=["']og:description["'][^>]*content=["'][^"']{20,}["']/i.test(html));
 check('T061', 'og:image meta tag points to My_Image.png', /<meta[^>]*property=["']og:image["'][^>]*content=["']My_Image\.png["']/i.test(html));
@@ -115,9 +115,9 @@ check('T073', 'Custom style.css linked after framework CSS', html.indexOf('boots
 check('T074', 'script.js linked after Bootstrap JS bundle', html.indexOf('bootstrap.bundle.min.js') < html.indexOf('script.js'));
 check('T075', 'Robots.txt file exists on disk', fs.existsSync(path.join(ROOT, 'robots.txt')));
 check('T076', 'Robots.txt allows indexing by default', /User-agent:\s*\*\s*Allow:\s*\//i.test(robotsTxt));
-check('T077', 'Robots.txt points to sitemap.xml', /Sitemap:\s*https:\/\/harshalsonar-portfolio\.netlify\.app\/sitemap\.xml/i.test(robotsTxt));
+check('T077', 'Robots.txt points to sitemap.xml', /Sitemap:\s*https:\/\/harshal-sonar-portfolio\.netlify\.app\/sitemap\.xml/i.test(robotsTxt));
 check('T078', 'Sitemap.xml file exists on disk', fs.existsSync(path.join(ROOT, 'sitemap.xml')));
-check('T079', 'Sitemap.xml contains valid URL loc', /<loc>https:\/\/harshalsonar-portfolio\.netlify\.app\/<\/loc>/i.test(sitemapXml));
+check('T079', 'Sitemap.xml contains valid URL loc', /<loc>https:\/\/harshal-sonar-portfolio\.netlify\.app\/<\/loc>/i.test(sitemapXml));
 check('T080', 'Sitemap.xml declares valid priority', /<priority>1\.0<\/priority>/i.test(sitemapXml));
 check('T081', 'Sitemap.xml declares valid changefreq', /<changefreq>monthly<\/changefreq>/i.test(sitemapXml));
 check('T082', 'Netlify.toml file exists on disk', fs.existsSync(path.join(ROOT, 'netlify.toml')));
@@ -633,8 +633,8 @@ check('T493', 'Twitter card includes summary_large_image', html.includes('name="
 check('T494', 'Netlify build configuration is valid TOML format', netlifyToml.includes('[build]') && netlifyToml.includes('[[headers]]'));
 check('T495', 'Netlify configuration sets X-XSS-Protection', netlifyToml.includes('X-XSS-Protection'));
 check('T496', 'Custom 404 page is linked to home and WhatsApp', notFoundHtml.includes('index.html') && notFoundHtml.includes('wa.me'));
-check('T497', 'Sitemap references valid HTTPS domain', sitemapXml.includes('https://harshalsonar-portfolio.netlify.app/'));
-check('T498', 'Robots.txt references valid sitemap URL', robotsTxt.includes('https://harshalsonar-portfolio.netlify.app/sitemap.xml'));
+check('T497', 'Sitemap references valid HTTPS domain', sitemapXml.includes('https://harshal-sonar-portfolio.netlify.app/'));
+check('T498', 'Robots.txt references valid sitemap URL', robotsTxt.includes('https://harshal-sonar-portfolio.netlify.app/sitemap.xml'));
 check('T499', 'Zero dead internal anchors', (function() {
     const anchors = html.match(/href=["']#([^"']+)["']/gi) || [];
     return anchors.every(a => {

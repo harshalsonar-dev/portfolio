@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://harshalsonar-portfolio.netlify.app/sitemap.xml
+Sitemap: https://harshal-sonar-portfolio.netlify.app/sitemap.xml
 
